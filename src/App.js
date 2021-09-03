@@ -10,6 +10,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import { useAuth } from "./contexts/AuthContext";
 import Footer from "./components/Footer";
+import Signup from "./pages/Signup";
 
 const App = () => {
   const { currentUser } = useAuth();
@@ -19,11 +20,11 @@ const App = () => {
         <Navbar />
 
         <Switch>
-          <Route exact path="/" component={Home} />
           <Route exact path="/tour" component={Tour} />
 
           <Route exact path="/about" component={About} />
           <Route exact path="/contact" component={Contact} />
+          <Route path="/" component={Home} />
         </Switch>
         <Footer />
       </BrowserRouter>
@@ -32,13 +33,8 @@ const App = () => {
     return (
       <BrowserRouter>
         <Switch>
+          <Route exact path="/signup" component={Signup} />
           <Route path="/" component={Login} />
-          <Route
-            path="/signup"
-            component={() => {
-              <h1>sign up</h1>;
-            }}
-          />
         </Switch>
       </BrowserRouter>
     );
